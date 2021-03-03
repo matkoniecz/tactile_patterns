@@ -11,13 +11,22 @@ If you would use it but "pip package" is too scary - please open an issue to let
 # Example
 
 ```
+from tactile_patterns_for_laser_cutter.data_format import Rescale
+from tactile_patterns_for_laser_cutter.data_format import Point
 from tactile_patterns_for_laser_cutter.data_format import Polygon
 from tactile_patterns_for_laser_cutter.data_format import Collection
 from tactile_patterns_for_laser_cutter.data_format import LinearRing
 from tactile_patterns_for_laser_cutter.data_format import pretty_geojson_string
 
 
-triangle = Polygon(LinearRing([[0, 0], [1, 1], [0, 1], [0, 0]]))
-collection = Collection([triangle])
+outer = LinearRing([
+        Point(lat=0, lon=0),
+        Point(lat=0, lon=1),
+        Point(lat=1, lon=1),
+        Point(lat=1, lon=0),
+        Point(lat=0, lon=0)
+        ])
+polygon = Polygon(outer)
+collection = Collection([polygon])
 print(pretty_geojson_string(collection.to_geojson()))
 ```
