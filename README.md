@@ -8,7 +8,9 @@ Available as tactile_patterns_for_laser_cutter pip package.
 
 If you would use it but "pip package" is too scary - please open an issue to let me know how it can be also published in way that makes it useful.
 
-# Example
+# Examples
+
+## Square
 
 ```
 from tactile_patterns_for_laser_cutter.data_format import Rescale
