@@ -12,7 +12,14 @@ class Rescale:
 
 
 class Point():
-    def __init__(self, lat, lon):
+    def __init__(self, lat=None, lon=None, x=None, y=None):
+        if lat == None and lon == None:
+            lat = y
+            lon = x
+        if lat == None:
+            raise "unexpected None for lat / y"
+        if lon == None:
+            raise "unexpected None for lon / x"
         self.lat = lat
         self.lon = lon
 
@@ -70,12 +77,12 @@ def pretty_geojson_string(geojson):
 
 def main():
     outer = LinearRing([
-            Point(lat=0, lon=0),
-            Point(lat=0, lon=1),
-            Point(lat=1, lon=1),
-            Point(lat=1, lon=0),
-            Point(lat=0, lon=0)
-            ])
+            Point(x=0, y=0),
+            Point(x=1, y=0),
+            Point(x=1, y=1),
+            Point(x=0, y=1),
+            Point(x=0, y=0),
+        ])
     polygon = Polygon(outer)
     collection = Collection([polygon])
     print(pretty_geojson_string(collection.to_geojson()))

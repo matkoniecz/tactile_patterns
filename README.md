@@ -22,11 +22,11 @@ from tactile_patterns_for_laser_cutter.data_format import pretty_geojson_string
 
 
 outer = LinearRing([
-        Point(lat=0, lon=0),
-        Point(lat=0, lon=1),
-        Point(lat=1, lon=1),
-        Point(lat=1, lon=0),
-        Point(lat=0, lon=0)
+            Point(x=0, y=0),
+            Point(x=1, y=0),
+            Point(x=1, y=1),
+            Point(x=0, y=1),
+            Point(x=0, y=0),
         ])
 polygon = Polygon(outer)
 collection = Collection([polygon])
