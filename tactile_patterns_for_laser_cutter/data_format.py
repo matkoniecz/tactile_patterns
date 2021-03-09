@@ -1,6 +1,7 @@
 import json
 import pprint
 import jsbeautifier
+from pyproj import Transformer
 
 
 class Rescale:
@@ -74,6 +75,39 @@ class Collection:
 
 def pretty_geojson_string(geojson):
     return jsbeautifier.beautify(json.dumps(geojson))
+
+def projection_code(meaning):
+    meanings = {
+        "wgs84": "EPSG:4326",
+        "wgs 84": "EPSG:4326",
+        "internal": "EPSG:4326", # everything internally is in WGS 84
+        "geojson": "EPSG:4326",
+        "openstreetmap": "EPSG:4326",
+        "osm": "EPSG:4326",
+        "web mercator": "EPSG:3857",
+        "aaaargh": "EPSG:3857",
+    }
+    return meanings[meaning.lower()]
+
+"""
+returns {'scale_lat': num, 'scale_lon': num} that when applied will
+keep shape of a pattern when projected into new projection
+
+useful when you treat geometry as a pattern, rather than as a shape of
+something real 
+"""
+def get_recommended_scaling(lat, lon, projection_to):
+    projection_from = projection_code("internal")
+    transformer = Transformer.from_crs(projection_from, projection_to)
+    point = transformer.transform(lat, lon)
+    right = transformer.transform(lat, lon + 0.1)
+    up = transformer.transform(lat + 0.1, lon)
+    lon_distance = right[0] - point[0]
+    lat_distance = up[1] - point[1]
+
+    lat_oversize = lat_distance / lon_distance
+
+    return {'scale_lat': 1.0 / lat_oversize, 'scale_lon': 1.0 }
 
 def main():
     outer = LinearRing([

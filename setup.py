@@ -15,6 +15,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires = [
         'jsbeautifier>=1.13.5, <2.0',
+        'pyproj>=2.5.0, <3.0',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
