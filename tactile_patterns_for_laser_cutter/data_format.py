@@ -30,6 +30,8 @@ class Rescale:
 
 class Point():
     def __init__(self, lat=None, lon=None, x=None, y=None):
+        if (lat != None or lon != None) and (x != None or y != None):
+            raise "unexpectedly specified both lan/lon and x/y"
         if lat == None and lon == None:
             lat = y
             lon = x
