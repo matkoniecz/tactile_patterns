@@ -5,7 +5,23 @@ from pyproj import Transformer
 
 
 class Rescale:
-    def __init__(self, multiply_lon, multiply_lat, add_lon, add_lat):
+    def __init__(self, multiply_lon=None, multiply_lat=None, add_lon=None, add_lat=None, multiply_y=None, multiply_x=None, add_x=None, add_y=None):
+        if (multiply_lon != None or multiply_lat != None or add_lon != None or add_lat != None):
+            if (multiply_x != None or multiply_y != None or add_x != None or add_y != None):
+                raise "unexpectedly specified both lan/lon and x/y"
+        if (multiply_lon == None and multiply_lat == None and add_lon == None and add_lat == None):
+            multiply_lon = multiply_x
+            multiply_lat = multiply_y
+            add_lon = add_x
+            add_lat = add_y
+        if multiply_lon == None:
+            raise "unexpected None for multiply lon / x"
+        if multiply_lat == None:
+            raise "unexpected None for multiply lat / y"
+        if add_lon == None:
+            raise "unexpected None for add lon / x"
+        if add_lat == None:
+            raise "unexpected None for add lat / y"
         self.multiply_lon = multiply_lon
         self.multiply_lat = multiply_lat
         self.add_lon = add_lon
