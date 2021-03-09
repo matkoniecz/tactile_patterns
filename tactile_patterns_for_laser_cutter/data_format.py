@@ -41,6 +41,10 @@ class Point():
             raise "unexpected None for lon / x"
         self.lat = lat
         self.lon = lon
+    
+    def rescale(self, changer):
+        self.lon = self.lon * changer.multiply_lon + changer.add_lon
+        self.lat = self.lat * changer.multiply_lat + changer.add_lat
 
     def to_geojson(self, rescale=None):
         if rescale == None:
@@ -53,6 +57,10 @@ class LinearRing:
     def __init__(self, coordinate_list):
         self.coordinate_list = coordinate_list
     
+    def rescale(self, changer):
+        for element in self.coordinate_list:
+            element.rescale(changer)
+
     def to_geojson(self, rescale=None):
         returned = []
         for element in self.coordinate_list:
@@ -65,6 +73,11 @@ class Polygon:
         self.inner_rings_list = inner_rings_list
         self.properties = properties
     
+    def rescale(self, changer):
+        outer_ring.rescale(changer)
+        for element in self.inner_rings_list:
+            element.rescale(changer)
+
     def to_geojson(self, rescale=None):
         coordinates = [self.outer_ring.to_geojson(rescale)]
         for inner in self.inner_rings_list:
@@ -81,6 +94,10 @@ class Polygon:
 class Collection:
     def __init__(self, element_list):
         self.element_list = element_list
+
+    def rescale(self, changer):
+        for element in self.element_list:
+            element.rescale(changer)
 
     def to_geojson(self, rescale=None):
         features = []
