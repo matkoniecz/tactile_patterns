@@ -75,7 +75,7 @@ class Polygon:
         self.properties = properties
     
     def rescale(self, changer):
-        outer_ring.rescale(changer)
+        self.outer_ring.rescale(changer)
         for element in self.inner_rings_list:
             element.rescale(changer)
 
