@@ -95,7 +95,17 @@ class Polygon:
 
 class Collection:
     def __init__(self, element_list):
-        self.element_list = element_list
+        self.element_list = []
+        self.merge_in_list(element_list)
+
+    def features(self):
+        return self.element_list
+    
+    def append(self, new_element):
+        self.element_lista.append(new_element)
+
+    def merge_in_list(self, new_elements_list):
+        self.element_list += new_elements_list
 
     def rescale(self, changer):
         for element in self.element_list:
