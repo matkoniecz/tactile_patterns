@@ -143,8 +143,9 @@ keep shape of a pattern when projected into new projection
 useful when you treat geometry as a pattern, rather than as a shape of
 something real 
 """
-def get_recommended_scaling(lat, lon, projection_to):
-    projection_from = projection_code("internal")
+def get_recommended_scaling(lat, lon, projection_to, projection_from=None):
+    if projection_from == None:
+        projection_from = projection_code("internal")
     transformer = Transformer.from_crs(projection_from, projection_to)
     point = transformer.transform(lat, lon)
     right = transformer.transform(lat, lon + 0.1)
