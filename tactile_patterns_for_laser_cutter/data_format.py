@@ -131,6 +131,9 @@ def projection_code(meaning):
         "geojson": "EPSG:4326",
         "openstreetmap": "EPSG:4326",
         "osm": "EPSG:4326",
+
+        "winkel tripel": "EPSG:54042", # private QGIS code?
+
         "web mercator": "EPSG:3857",
         "aaaargh": "EPSG:3857",
     }
