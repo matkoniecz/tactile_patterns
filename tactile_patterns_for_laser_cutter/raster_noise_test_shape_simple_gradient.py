@@ -1,5 +1,4 @@
 import numpy as np
-from scipy.ndimage.interpolation import zoom
 from PIL import Image
 
 multiplier = 3
