@@ -45,4 +45,4 @@ print(pretty_geojson_string(collection.to_geojson()))
 
 The [OpenStreetMap foundation](https://wiki.osmfoundation.org/wiki/Main_Page) was funding the development of this project in their first round of the [microgrant program](https://wiki.osmfoundation.org/wiki/Microgrants) in 2020. It was done as part of making [tactile maps based on OpenStreetMap data, for blind or visually impaired children](https://wiki.openstreetmap.org/wiki/Microgrants/Microgrants_2020/Proposal/Tactile_maps_for_blind_or_visually_impaired_children).
 
-If anyone else is also interested in supporting this project via funding - [let me know](mailto:osm-messages@etutanota.com) (opening a new issue is also OK) :)
+If anyone else is also interested in supporting this project via funding - [let me know](mailto:osm-messages@tutanota.com) (opening a new issue is also OK) :)
