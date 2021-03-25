@@ -7,11 +7,11 @@ def squared_distance_from_circle_to_value(squared_distance):
     scaled = 255 - scaled_distance
     if scaled < 0:
         return 0
-    return int(scaled)
+    return int(scaled*1.4)
 
 def squared_distance_from_center(x, y):
-    x = x % 240
-    y = y % 240
+    x = x % 200
+    y = y % 200
     center_x = 120
     center_y = 120
     delta_x = x - center_x
@@ -22,7 +22,7 @@ def value_for_location(x, y):
     squared_distance = squared_distance_from_center(x, y)
     return squared_distance_from_circle_to_value(squared_distance)
 
-size = 1000
+size = 1400
 width = size
 height = size
 
