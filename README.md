@@ -19,12 +19,12 @@ If you would use it but "pip package" is too scary - please open an issue to let
 ## Square
 
 ```
-from tactile_patterns_for_laser_cutter.data_format import Rescale
-from tactile_patterns_for_laser_cutter.data_format import Point
-from tactile_patterns_for_laser_cutter.data_format import Polygon
-from tactile_patterns_for_laser_cutter.data_format import Collection
-from tactile_patterns_for_laser_cutter.data_format import LinearRing
-from tactile_patterns_for_laser_cutter.data_format import pretty_geojson_string
+from tactile_patterns.data_format import Rescale
+from tactile_patterns.data_format import Point
+from tactile_patterns.data_format import Polygon
+from tactile_patterns.data_format import Collection
+from tactile_patterns.data_format import LinearRing
+from tactile_patterns.data_format import pretty_geojson_string
 
 
 outer = LinearRing([
