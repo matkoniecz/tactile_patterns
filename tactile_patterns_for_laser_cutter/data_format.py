@@ -170,7 +170,7 @@ def main():
         ])
     polygon = Polygon(outer)
     collection = Collection([polygon])
-    #rint(pretty_geojson_string(collection.to_geojson()))
+    #print(pretty_geojson_string(collection.to_geojson()))
 
     pattern = maze_under_construction_pattern(30, 30)
     lat = 50.05518
