@@ -31,6 +31,6 @@ def generate_vector_pattern(pattern, name):
     filepath = name + ".geojson"
     with open(filepath, "w") as myfile:
         myfile.write(pretty_geojson_string(pattern.to_geojson()))
-    os.system("svgis draw '" + filepath + "' --style '* {stroke: none; fill: #00f}' -o '" + name + ".svg'")
+    os.system("svgis draw '" + filepath + "' --crs " + projection_code("web mercator") + " --style '* {stroke: none; fill: #00f}' -o '" + name + ".svg'")
 
 main()
