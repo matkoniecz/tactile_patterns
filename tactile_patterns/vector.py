@@ -38,9 +38,9 @@ def lone_squares_pattern(repetition_x, repetition_y):
             ])
     square = LinearRing([
                 Point(x=0, y=0),
-                Point(x=square_size, y=0),
-                Point(x=square_size, y=square_size),
                 Point(x=0, y=square_size),
+                Point(x=square_size, y=square_size),
+                Point(x=square_size, y=0),
                 Point(x=0, y=0),
             ])
     inners = []
