@@ -15,9 +15,10 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires = [
         'jsbeautifier>=1.13.5, <2.0',
-        'pyproj>=2.5.0, <3.0',
+        'pyproj>=3.0, <4.0',
         'numpy>=1.19.5, <2.0',
         'pillow>=8.1.2, <9.0',
+        'svgis>=0.5.1',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
