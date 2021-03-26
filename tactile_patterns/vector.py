@@ -11,6 +11,49 @@ import copy
 import pprint
 import time
 
+def lone_squares_pattern(repetition_x, repetition_y):
+    """
+    █████████████████████████████████████████████
+    ███   ███   ███   ███   ███   ███   ███   ███
+    ███   ███   ███   ███   ███   ███   ███   ███
+    █████████████████████████████████████████████
+    █████████████████████████████████████████████
+    ███   ███   ███   ███   ███   ███   ███   ███
+    ███   ███   ███   ███   ███   ███   ███   ███
+    █████████████████████████████████████████████
+    █████████████████████████████████████████████
+    ███   ███   ███   ███   ███   ███   ███   ███
+    ███   ███   ███   ███   ███   ███   ███   ███
+    █████████████████████████████████████████████
+    """
+    square_size = 1
+    space_size = 2
+    pattern_size = repetition_x * (square_size + space_size) + space_size
+    outer = LinearRing([
+                Point(x=0, y=0),
+                Point(x=pattern_size, y=0),
+                Point(x=pattern_size, y=pattern_size),
+                Point(x=0, y=pattern_size),
+                Point(x=0, y=0),
+            ])
+    square = LinearRing([
+                Point(x=0, y=0),
+                Point(x=square_size, y=0),
+                Point(x=square_size, y=square_size),
+                Point(x=0, y=square_size),
+                Point(x=0, y=0),
+            ])
+    inners = []
+    for x in range(0, repetition_x):
+        for y in range(0, repetition_y):
+            x_move = x * (square_size + space_size) + space_size
+            y_move = y * (square_size + space_size) + space_size
+            added = copy.deepcopy(square)
+            added.rescale(Rescale(multiply_x=1, multiply_y=1, add_x=x_move, add_y=y_move))
+            inners.append(added)
+    return Polygon(outer, inners)
+
+
 """
 see project README for usage example
 """
