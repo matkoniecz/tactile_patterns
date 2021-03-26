@@ -61,11 +61,13 @@ def circle_bumps_regular_pattern():
 
 #########################################################################
 
-def irregullar_differently_shaped_islands():
+def irregullar_differently_shaped_islands(random_seed=None):
     generated_noise_areas = 100
     noise_area_size = 10
     value_scaling = 1
     value_scaling = 0.7
+    if random_seed != None:
+        np.random.seed(random_seed)
     arr = np.random.standard_normal(size=(generated_noise_areas, generated_noise_areas))
 
 
