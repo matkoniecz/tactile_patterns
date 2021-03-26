@@ -27,7 +27,7 @@ def lone_squares_pattern(repetition_x, repetition_y):
     █████████████████████████████████████████████
     """
     square_size = 1
-    space_size = 2
+    space_size = 1.5
     pattern_size = repetition_x * (square_size + space_size) + space_size
     outer = LinearRing([
                 Point(x=0, y=0),
