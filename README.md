@@ -1,3 +1,7 @@
+# current blocker:
+
+https://forum.lightburnsoftware.com/t/bugs-on-importing-svg-with-small-elements/37173
+
 # Disclaimer
 
 Pattern here are of pre-alpha quality - not validated in actual use, examples are missing, usage instruction is missing, tested only in LightBurn etc etc.
