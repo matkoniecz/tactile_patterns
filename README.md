@@ -1,8 +1,36 @@
 # Disclaimer
 
-Pattern here are of pre-alpha quality - not tested, never used on actual laser cutter, not validated in actual use, examples are missing, usage instruction is missing, tested only in LightBurn etc etc.
+Pattern here are of pre-alpha quality - not validated in actual use, examples are missing, usage instruction is missing, tested only in LightBurn etc etc.
 
 All of that will change.
+
+# Pregenerated patterns
+
+[/patterns](/patterns) folder contains pregenerated patterns, so you can use them without running any code.
+
+# Usage
+
+## Laser cut wood
+
+There are two major problems with using wood (plywood) engraved with laser cutter.
+
+First is charring, this can be avoided by engraving in multiple passes with reduced power rather than one pass with high power.
+
+Second is that inherent wood texture is often masking shapes created by laser engraving. This is more problematic with such production method, as wood is not polished.
+
+Note that raster engraving are often optimalized for how generated works looks like. Requirements for tactile materials may differ. For example in LightBurn typically recommended Jarvis is inferior to grayscale setting. Jarvis may look well, but produces rough texture, with fine elements that are crushed on touch, with very poor recognizability of overall shape.
+
+TODO: include example settings in LightBurn
+
+TODO: include photo with both charring and succesful burns
+
+## Laser cut plexiglass
+
+Plexiglass is also usable on laser cutters and texture cut into it is much more recognisable by touch, as it has no grain or large scale internal structure.
+
+Note that cutting through plexiglass is more tricky, one (untested) recomendation is to use two passes with lower power, as settings typical to wood will leave unclean cut with stringy parts or jagged edge.
+
+Combining plywood and plexiglass in one design is likely to be a good idea, as difference in materials is clear by touch.
 
 # Tactile patterns for laser cutter
 
@@ -13,10 +41,6 @@ Used for example on maps for blind people.
 Available as tactile_patterns pip package.
 
 If you would use it but "pip package" is too scary - please open an issue to let me know how it can be also published in way that makes it useful.
-
-# Pregenerated patterns
-
-[/patterns](/patterns) folder contains pregenerated patterns, so you can use them without running any code.
 
 # Examples
 
