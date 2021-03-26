@@ -4,9 +4,11 @@ https://forum.lightburnsoftware.com/t/bugs-on-importing-svg-with-small-elements/
 
 # Disclaimer
 
-Pattern here are of pre-alpha quality - not validated in actual use, examples are missing, usage instruction is missing, tested only in LightBurn etc etc.
+Pattern here are of alpha quality - not validated in actual use, examples are missing, usage instruction is missing, tested only in LightBurn etc etc.
 
 All of that will change.
+
+Part of designs were prototyped already, so initial testing is done.
 
 # Pregenerated patterns
 
