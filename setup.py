@@ -18,6 +18,11 @@ setuptools.setup(
         'pyproj>=3.0, <4.0',
         'numpy>=1.19.5, <2.0',
         'pillow>=8.1.2, <9.0',
+        # svgis is GPL licensed by called via shell without intimate communication
+        # see
+        # https://www.gnu.org/licenses/gpl-faq.html#GPLInProprietarySystem
+        # https://www.gnu.org/licenses/gpl-faq.html#MereAggregation
+        # that should apply and as far as I see explain that it is OK
         'svgis>=0.5.1',
     ],
     classifiers=[
