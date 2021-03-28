@@ -13,7 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/matkoniecz/tactile_patterns",
     packages=setuptools.find_packages(),
-    install_requires = [
+    install_requires=[
         'jsbeautifier>=1.13.5, <2.0',
         'pyproj>=3.0, <4.0',
         'numpy>=1.19.5, <2.0',
@@ -39,4 +39,3 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
 )
-

@@ -11,6 +11,7 @@ import copy
 import pprint
 import time
 
+
 def lone_squares_pattern(repetition_x, repetition_y):
     """
     █████████████████████████████████████████████
@@ -30,19 +31,19 @@ def lone_squares_pattern(repetition_x, repetition_y):
     space_size = 1.5
     pattern_size = repetition_x * (square_size + space_size) + space_size
     outer = LinearRing([
-                Point(x=0, y=0),
-                Point(x=pattern_size, y=0),
-                Point(x=pattern_size, y=pattern_size),
-                Point(x=0, y=pattern_size),
-                Point(x=0, y=0),
-            ])
+        Point(x=0, y=0),
+        Point(x=pattern_size, y=0),
+        Point(x=pattern_size, y=pattern_size),
+        Point(x=0, y=pattern_size),
+        Point(x=0, y=0),
+    ])
     square = LinearRing([
-                Point(x=0, y=0),
-                Point(x=0, y=square_size),
-                Point(x=square_size, y=square_size),
-                Point(x=square_size, y=0),
-                Point(x=0, y=0),
-            ])
+        Point(x=0, y=0),
+        Point(x=0, y=square_size),
+        Point(x=square_size, y=square_size),
+        Point(x=square_size, y=0),
+        Point(x=0, y=0),
+    ])
     inners = []
     for x in range(0, repetition_x):
         for y in range(0, repetition_y):
@@ -57,6 +58,8 @@ def lone_squares_pattern(repetition_x, repetition_y):
 """
 see project README for usage example
 """
+
+
 def maze_under_construction_pattern(repetition_x, repetition_y):
     """
                         v
@@ -70,28 +73,28 @@ def maze_under_construction_pattern(repetition_x, repetition_y):
          1
     """
     multiplier = 8
-    central_point_x = multiplier/2 
-    central_point_y = multiplier* 3/2 
+    central_point_x = multiplier/2
+    central_point_y = multiplier * 3/2
     width = multiplier
     height = 1
     l1 = LinearRing([
-            Point(x=central_point_x - width/2, y=central_point_y - height/2),
-            Point(x=central_point_x + width/2, y=central_point_y - height/2),
-            Point(x=central_point_x + width/2, y=central_point_y + height/2),
-            Point(x=central_point_x - width/2, y=central_point_y + height/2),
-            Point(x=central_point_x - width/2, y=central_point_y - height/2),
-        ])
-    central_point_x = multiplier/2 
-    central_point_y = multiplier/2 
+        Point(x=central_point_x - width/2, y=central_point_y - height/2),
+        Point(x=central_point_x + width/2, y=central_point_y - height/2),
+        Point(x=central_point_x + width/2, y=central_point_y + height/2),
+        Point(x=central_point_x - width/2, y=central_point_y + height/2),
+        Point(x=central_point_x - width/2, y=central_point_y - height/2),
+    ])
+    central_point_x = multiplier/2
+    central_point_y = multiplier/2
     width = 1
     height = multiplier
     v1 = LinearRing([
-            Point(x=central_point_x - width/2, y=central_point_y - height/2),
-            Point(x=central_point_x + width/2, y=central_point_y - height/2),
-            Point(x=central_point_x + width/2, y=central_point_y + height/2),
-            Point(x=central_point_x - width/2, y=central_point_y + height/2),
-            Point(x=central_point_x - width/2, y=central_point_y - height/2),
-        ])
+        Point(x=central_point_x - width/2, y=central_point_y - height/2),
+        Point(x=central_point_x + width/2, y=central_point_y - height/2),
+        Point(x=central_point_x + width/2, y=central_point_y + height/2),
+        Point(x=central_point_x - width/2, y=central_point_y + height/2),
+        Point(x=central_point_x - width/2, y=central_point_y - height/2),
+    ])
     l2 = copy.deepcopy(l1)
     l2.rescale(Rescale(multiply_x=1, multiply_y=1, add_x=multiplier, add_y=-multiplier))
     v2 = copy.deepcopy(v1)

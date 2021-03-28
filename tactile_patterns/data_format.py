@@ -42,7 +42,7 @@ class Point():
             raise "unexpected None for lon / x"
         self.lat = lat
         self.lon = lon
-    
+
     def rescale(self, changer):
         self.lon = self.lon * changer.multiply_lon + changer.add_lon
         self.lat = self.lat * changer.multiply_lat + changer.add_lat
@@ -54,10 +54,11 @@ class Point():
         lat = self.lat * rescale.multiply_lat + rescale.add_lat
         return [lon, lat]
 
+
 class LinearRing:
     def __init__(self, coordinate_list):
         self.coordinate_list = coordinate_list
-    
+
     def rescale(self, changer):
         for element in self.coordinate_list:
             element.rescale(changer)
@@ -68,12 +69,13 @@ class LinearRing:
             returned.append(element.to_geojson(rescale))
         return returned
 
+
 class Polygon:
     def __init__(self, outer_ring, inner_rings_list=[], properties={}):
         self.outer_ring = outer_ring
         self.inner_rings_list = inner_rings_list
         self.properties = properties
-    
+
     def rescale(self, changer):
         self.outer_ring.rescale(changer)
         for element in self.inner_rings_list:
@@ -92,6 +94,7 @@ class Polygon:
             "properties": self.properties
         }
 
+
 class Collection:
     def __init__(self, element_list):
         self.element_list = []
@@ -99,7 +102,7 @@ class Collection:
 
     def features(self):
         return self.element_list
-    
+
     def append(self, new_element):
         self.element_lista.append(new_element)
 
@@ -117,26 +120,29 @@ class Collection:
         return {
             "type": "FeatureCollection",
             "features": features,
-            }
+        }
+
 
 def pretty_geojson_string(geojson):
     return jsbeautifier.beautify(json.dumps(geojson))
+
 
 def projection_code(meaning):
     meanings = {
         "wgs84": "EPSG:4326",
         "wgs 84": "EPSG:4326",
-        "internal": "EPSG:4326", # everything internally is in WGS 84
+        "internal": "EPSG:4326",  # everything internally is in WGS 84
         "geojson": "EPSG:4326",
         "openstreetmap": "EPSG:4326",
         "osm": "EPSG:4326",
 
-        "winkel tripel": "EPSG:54042", # private QGIS code?
+        "winkel tripel": "EPSG:54042",  # private QGIS code?
 
         "web mercator": "EPSG:3857",
         "aaaargh": "EPSG:3857",
     }
     return meanings[meaning.lower()]
+
 
 """
 returns {'scale_lat': num, 'scale_lon': num} that when applied will
@@ -145,6 +151,8 @@ keep shape of a pattern when projected into new projection
 useful when you treat geometry as a pattern, rather than as a shape of
 something real 
 """
+
+
 def get_recommended_scaling(lat, lon, projection_to, projection_from=None):
     if projection_from == None:
         projection_from = projection_code("internal")
@@ -157,19 +165,21 @@ def get_recommended_scaling(lat, lon, projection_to, projection_from=None):
 
     lat_oversize = lat_distance / lon_distance
 
-    return {'scale_lat': 1.0 / lat_oversize, 'scale_lon': 1.0 }
+    return {'scale_lat': 1.0 / lat_oversize, 'scale_lon': 1.0}
+
 
 def main():
     outer = LinearRing([
-            Point(x=0, y=0),
-            Point(x=1, y=0),
-            Point(x=1, y=1),
-            Point(x=0, y=1),
-            Point(x=0, y=0),
-        ])
+        Point(x=0, y=0),
+        Point(x=1, y=0),
+        Point(x=1, y=1),
+        Point(x=0, y=1),
+        Point(x=0, y=0),
+    ])
     polygon = Polygon(outer)
     collection = Collection([polygon])
     print(pretty_geojson_string(collection.to_geojson()))
+
 
 if __name__ == "__main__":
     main()

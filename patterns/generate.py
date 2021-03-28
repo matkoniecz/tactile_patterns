@@ -7,6 +7,7 @@ from tactile_patterns.data_format import Rescale
 import os
 from PIL import Image
 
+
 def main():
     generate_vector_pattern(vector.lone_squares_pattern(30, 30), "lone_squares")
     generate_vector_pattern(vector.maze_under_construction_pattern(30, 30), "under_construction_maze")
@@ -20,6 +21,7 @@ def main():
     image_raster = raster.irregullar_differently_shaped_islands(random_seed=784234)
     image_raster.save("irregullar_differently_shaped_islands.png")
 
+
 def generate_vector_pattern(pattern, name):
     lat = 50.05518
     lon = 19.92757
@@ -31,6 +33,8 @@ def generate_vector_pattern(pattern, name):
     filepath = name + ".geojson"
     with open(filepath, "w") as myfile:
         myfile.write(pretty_geojson_string(pattern.to_geojson()))
-    os.system("svgis draw '" + filepath + "' --crs " + projection_code("web mercator") + " --style '* {stroke: none; fill: #00f}' -o '" + name + ".svg'")
+    os.system("svgis draw '" + filepath + "' --crs " + projection_code("web mercator") +
+              " --style '* {stroke: none; fill: #00f}' -o '" + name + ".svg'")
+
 
 main()
