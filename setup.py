@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.1",
     author="Mateusz Konieczny",
     author_email="matkoniecz@gmail.com",
-    description="Generates patterns recognisable by touch, for use in laser-cut materials (for people who are blind or with a poor eyesight, in dark)",
+    description="Generates tactile patterns recognisable by touch, for use in laser-cut designs. For people who are blind or with a poor eyesight, in dark.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/matkoniecz/tactile_patterns",
@@ -25,6 +25,13 @@ setuptools.setup(
         # that should apply and as far as I see explain that it is OK
         'svgis>=0.5.1',
     ],
+    # use following to install that:
+    # pip install --user -e .[dev]
+    extras_require={
+        'dev': [
+            'pylint'
+        ],
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
