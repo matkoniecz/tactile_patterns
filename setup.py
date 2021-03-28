@@ -29,7 +29,8 @@ setuptools.setup(
     # pip install --user -e .[dev]
     extras_require={
         'dev': [
-            'pylint'
+            'pylint>=2.7.2',
+            'autopep8>=1.5.6',
         ],
     },
     classifiers=[
