@@ -6,6 +6,8 @@ Also, if you used this to produce something - please open an issue with a photo 
 
 For bigger changes I strongly encourage to create an issue first to review the idea.
 
+Issues with scatching criticism of code quality  are also welcomed, as long as you are specific and clear what is wrong and how it can be improved.
+
 # License
 
 Note that by contributing code you are licensing it to license used by this reporitory.
