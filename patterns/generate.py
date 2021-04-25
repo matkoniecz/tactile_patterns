@@ -18,6 +18,9 @@ def main():
     image_raster = raster.circle_bumps_regular_pattern()
     image_raster.save("circle_bumps_regular_pattern.png")
 
+    image_raster = raster.pedestrian_crossing_smooth_gradient()
+    image_raster.save("crossing_smooth.png")
+
     image_raster = raster.irregullar_differently_shaped_islands(random_seed=784234)
     image_raster.save("irregullar_differently_shaped_islands.png")
 
