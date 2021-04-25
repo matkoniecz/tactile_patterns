@@ -6,6 +6,6 @@ pip3 uninstall tactile_patterns -y
 pip3 install --user *.whl
 cd ..
 python3 -m "nose"
-cd patterns
+cd generated_patterns
 python3 generate.py
 # twine upload dist/* # to upload to PyPi
