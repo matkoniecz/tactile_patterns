@@ -83,8 +83,7 @@ def pedestrian_crossing_smooth_gradient():
                     if distance_from_nearest_white > distance:
                         distance_from_nearest_white = distance
                 value = scaling_distance_from_white_to_value_for_crossings(distance_from_nearest_white)
-            red_value = 255 # for debug only TODO XXX REMOVE
-            pixels[x, y] = (red_value, value, value)
+            pixels[x, y] = (value, value, value)
     return im
     # im.save("generated.png")
     # im.show()
