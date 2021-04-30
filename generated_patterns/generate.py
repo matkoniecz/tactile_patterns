@@ -9,7 +9,7 @@ from PIL import Image
 
 
 def main():
-    generate_vector_pattern(vector.lone_squares_pattern(50, 50), "lone_squares")
+    generate_vector_pattern(vector.lone_squares_pattern(220, 220), "lone_squares")
     generate_vector_pattern(vector.maze_under_construction_pattern(30, 30), "under_construction_maze")
 
     image_raster = raster.simple_gradient()
@@ -26,9 +26,9 @@ def main():
 
 
 def generate_vector_pattern(pattern, name):
-    lat = 50.05575
-    lon = 19.92677
-    base_scaling = 0.000007
+    lat = 50.05478
+    lon = 19.92642
+    base_scaling = 0.000004
     projection_scale = get_recommended_scaling(lat, lon, projection_code("web mercator"))
     scale_lat = projection_scale['scale_lat'] * base_scaling
     scale_lon = projection_scale['scale_lon'] * base_scaling
