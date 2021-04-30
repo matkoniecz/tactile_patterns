@@ -18,13 +18,15 @@ Part of designs were prototyped already, so initial testing is done.
 
 ## Laser cut wood
 
+Plywood is commonly used for laser cutters.
+
 There are two major problems with using wood (plywood) engraved with laser cutter.
 
 First is charring, this can be avoided by engraving in multiple passes with reduced power rather than one pass with high power.
 
-Second is that inherent wood texture is often masking shapes created by laser engraving. This is more problematic with such production method, as wood is not polished.
+Second is that inherent wood texture is often masking shapes created by laser engraving. This is more problematic with laser engraving compared to other potential production methods.
 
-Note that raster engraving are often optimalized for how generated works looks like. Requirements for tactile materials may differ. For example in LightBurn typically recommended Jarvis is inferior to grayscale setting. Jarvis may look well, but produces rough texture, with fine elements that are crushed on touch, with very poor recognizability of overall shape.
+Note that raster engraving are often optimalized for how generated works looks like. Requirements for tactile materials may differ. For example in LightBurn typically recommended Jarvis is the best for something that will be looked at, not touched. For tactile patterns grayscale setting is superior. Jarvis may look well, but produces rough texture, with fine elements that are crushed on touch, with very poor recognizability of overall shape.
 
 TODO: include example settings in LightBurn
 
@@ -36,7 +38,19 @@ Plexiglass is also usable on laser cutters and texture cut into it is much more 
 
 Note that cutting through plexiglass is more tricky, one (untested) recomendation is to use two passes with lower power, as settings typical to wood will leave unclean cut with stringy parts or jagged edge.
 
-Combining plywood and plexiglass in one design is likely to be a good idea, as difference in materials is clear by touch.
+Combining plywood and plexiglass in one design is a good idea, as difference in materials is clear by touch. Plywood without pattern and plexiglass without pattern are clearly recognisable.
+
+## Cloth, felt
+
+Problematic due to hygienic issues. It would become dirty quickly and is basically impossible to clean it.
+
+## Cork
+
+??? should be interesting and useful
+
+## Leather
+
+??? should be interesting and useful
 
 # Tactile patterns for laser cutter
 
