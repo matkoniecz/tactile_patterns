@@ -1,3 +1,13 @@
+# Archived, replaced, deprecated!
+
+Please see [https://github.com/matkoniecz/lunar_assembler](https://github.com/matkoniecz/lunar_assembler) for a replacement.
+
+I switched to JS based solution, as using browser as an operating systems allows to skip installation.
+
+Still, maybe patterns here will be useful for someone.
+
+Right now I am not using it as turned out that the simplest patterns were better (though, testing more complex solutions was worth doing).
+
 # current blocker:
 
 https://forum.lightburnsoftware.com/t/bugs-on-importing-svg-with-small-elements/37173
